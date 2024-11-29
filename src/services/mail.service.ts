@@ -16,6 +16,7 @@ export class MailService {
   private googleAuthUrl = environment.GOOGLE_AUTH_URL;
   private gmailBaseUrl =  environment.GMAIL_BASE_URL;
   private googleSendMailUrl = environment.GOOGLESENDMAILURL; 
+  private outlookSentMailUrl = 'https://graph.microsoft.com/v1.0/me/mailFolders/SentItems/messages';
   constructor(private http: HttpClient) { }
 
 
@@ -75,6 +76,18 @@ getInboxMails(accessToken: string) {
   // .set('$skip', "0");
   return this.http.get(this.graphUrl, { headers });
 }
+
+getOutlookSentMails(accessToken: string) {
+  const headers = new HttpHeaders().set('Authorization', `Bearer ${accessToken}`);
+  // const params = new HttpParams()
+  // .set('$top', "5")
+  // .set('$skip', "0");
+  // .set('$orderby', "sentDateTime desc")
+  // .set('$select', 'subject,sender,sentDateTime');
+  return this.http.get(this.outlookSentMailUrl, { headers });
+}
+
+
 
 sendMail(accessToken: string, email: any) {
   const headers = new HttpHeaders({

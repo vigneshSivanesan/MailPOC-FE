@@ -1,1 +1,36 @@
 <p>sent-items works!</p>
+<div class="mail-container">
+    <div class="inbox-list">
+      <h2>Inbox</h2>
+      <div class="mail-card" *ngFor="let inbox of inboxData" [ngClass]="{ selectedInbox: inbox.inboxName === selectedInbox.inboxName }" (click)="selectInbox(inbox)">
+        <div class="mail-header">
+          <strong>{{ inbox.inboxName }}</strong>
+          <span>{{ inbox.provider }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="mail-content">
+      <div class="mail-list">
+        <h2>Inbox Mails</h2>
+        <div class="mails-container" *ngIf="mails.length > 0">
+          <div class="mail-card" *ngFor="let mail of mails" (click)="selectMail(mail)">
+            <div class="mail-header">
+              <strong>{{ mail.subject }}</strong>
+              <span>{{ mail.sentDateTime | date:'short' }}</span>
+            </div>
+            <div class="mail-body">
+              <p><strong>From:</strong> {{ mail.from.emailAddress.name }} ({{ mail.from.emailAddress.address }})</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mail-detail" *ngIf="selectedMail">
+        <h2>{{ selectedMail.subject }}</h2>
+        <p><strong>From:</strong> {{ selectedMail.from.emailAddress.name }} ({{ selectedMail.from.emailAddress.address }})  
+
+        <p><strong>Sent:</strong> {{ selectedMail.sentDateTime | date:'fullDate' }}</p>
+        <div [innerHTML]="sanitizeHtml(selectedMail.body.content)"></div>
+      </div>
+    </div>
+  </div>
+ 

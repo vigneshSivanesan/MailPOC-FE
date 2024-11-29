@@ -6,10 +6,11 @@
 
 
     <div *ngIf="this.selectedTab === 'Inbox'">
-        <app-sent-items></app-sent-items> 
+       
+        <app-mail-channel></app-mail-channel>
     </div>
     <div *ngIf="this.selectedTab === 'Sent'">
-        <app-mail-channel></app-mail-channel>
+        <app-sent-items></app-sent-items> 
     </div>
 
 
