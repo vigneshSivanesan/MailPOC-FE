@@ -1,7 +1,7 @@
-<p>sent-items works!</p>
+
 <div class="mail-container">
     <div class="inbox-list">
-      <h2>Inbox</h2>
+      <h2>Sent</h2>
       <div class="mail-card" *ngFor="let inbox of inboxData" [ngClass]="{ selectedInbox: inbox.inboxName === selectedInbox.inboxName }" (click)="selectInbox(inbox)">
         <div class="mail-header">
           <strong>{{ inbox.inboxName }}</strong>
@@ -11,7 +11,7 @@
     </div>
     <div class="mail-content">
       <div class="mail-list">
-        <h2>Inbox Mails</h2>
+        <h2>Sent Mails</h2>
         <div class="mails-container" *ngIf="mails.length > 0">
           <div class="mail-card" *ngFor="let mail of mails" (click)="selectMail(mail)">
             <div class="mail-header">
