@@ -1,11 +1,11 @@
 <div class="container">
     <div class="header">
       <h1>Connect to channel</h1>
-      <div class="inbox-input" *ngIf="this.code">
+      <!-- <div class="inbox-input" *ngIf="this.code">
         <label for="subject">Inbox name</label>
         <input type="text" placeholder="please enter the inbox name" [(ngModel)]="inboxName">
         <button (click)="saveInbox()"> save</button>
-      </div>
+      </div> -->
     </div>
     <div class="cards">
       <div class="card">
@@ -17,10 +17,20 @@
       </div>
       <div class="card">
         <h4>
-          <img src="assets/icons/gmail.png" alt="Outlook Icon" class="icon"> Outlook
+          <img src="assets/icons/outlook.png" alt="Outlook Icon" class="icon"> Outlook
         </h4>
         <p>Add your Outlook account</p>
         <button (click)="signInOutlook()">Connect</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="compose-popup" *ngIf="this.code">
+    <div class="compose-popup-content">
+      <div class="inbox-input">
+        <label for="subject">Inbox name</label>
+        <input type="text" placeholder="please enter the inbox name" [(ngModel)]="inboxName">
+        <button (click)="saveInbox()"> save</button>
       </div>
     </div>
   </div>

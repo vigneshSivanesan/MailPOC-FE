@@ -1,18 +1,31 @@
-
-<div>
-    <span (click)="setSelectedTab('Inbox')">Inbox</span>
-    <span (click)="setSelectedTab('Sent')">Sent</span>
+<div class="mail-box-container">
+<div class="user-profile">
+    <div class="profile_card_top">
+        <img width="30px" height="30px" src="../../assets/icons/user-icon.svg" alt="">
+        <div class="text-div">
+            <div class="msg">
+                <span>Hi..</span>
+            </div>
+            <div class="name">
+                <h3>MY Name</h3>
+            </div>
+        </div>
+    </div>
+    
+    <div class="side_first_nav">
+        <span (click)="setSelectedTab('Inbox')">Inbox</span>
+        <span (click)="setSelectedTab('Sent')">Sent</span>
+    </div>
 </div>
 
 
     <div *ngIf="this.selectedTab === 'Inbox'">
-       
         <app-mail-channel></app-mail-channel>
     </div>
     <div *ngIf="this.selectedTab === 'Sent'">
         <app-sent-items></app-sent-items> 
     </div>
-
+</div>
 
 
 

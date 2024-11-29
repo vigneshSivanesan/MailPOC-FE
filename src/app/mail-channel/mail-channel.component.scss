@@ -5,20 +5,26 @@
 }
 
 .inbox-list {
-  width: 300px;
-  /* Fixed width */
-  padding: 20px;
+  min-width: 250px;
+  padding: .5rem ;
   box-sizing: border-box;
-  background-color: #f5f5f5;
-  /* Light background color */
-  border-right: 1px solid #ddd;
-  /* Border to separate from content */
+  background-color: #f7f9fb;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  
+  // border-right: 1px solid #ddd;
+}
+
+.inbox-list h2{
+  margin: 0;
 }
 
 .mails-container {
   overflow: auto;
-  height: calc(100% - 58.56px);
-
+  // height: calc(100% - 58.56px);
+  display: grid;
+  gap: .5rem;
   &::-webkit-scrollbar {
     display: none;
   }
@@ -27,18 +33,22 @@
 }
 
 .mail-card {
-  font-size: 12px;
+  font-size: 14px;
 
   .mail-header {
     strong {
-      width: calc(100% - 90px);
+      // width: calc(100% - 90px);
+      width: max-content;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #333;
     }
 
     span {
-      font-size: 10px;
+      font-size: 12px;
       color: grey;
     }
   }
@@ -47,41 +57,42 @@
   display: flex;
   flex: 1;
   /* Take up remaining space */
-  padding: 20px;
+  // padding: .5rem;
   box-sizing: border-box;
 }
 
 .mail-list {
-  width: 300px;
+  // width: 100%;
   /* Same width as inbox-list */
-  padding: 20px;
-  box-sizing: border-box;
-  background-color: #f5f5f5;
+  padding: .5rem 1rem;
+  // box-sizing: border-box;
+  // background-color: #f5f5f5;
   /* Light background color */
   border-right: 1px solid #ddd;
-  /* Border to separate from mail-detail */
+ display: grid;
+ gap: .5rem;
 }
 
 .mail-detail {
   flex: 1;
   /* Take up remaining space */
-  padding: 20px;
+  padding: .5rem;
   overflow: auto;
 }
 
 .mail-card {
   background-color: #fff;
-  border: 1px solid #ddd;
   border-radius: 8px;
   padding: 15px;
-  margin-bottom: 10px;
+  border: 1px solid #eee;
   cursor: pointer;
   transition: 0.3s ease;
+  width: 300px;
 }
 
 .mail-card.selectedInbox {
-  background-color: #cecece;
-  border: 1px solid #ababab;
+  background-color: #eceeff;
+  border: 1px solid #3347fe;
 }
 
 .mail-card:hover {
@@ -152,3 +163,4 @@
   background-color: #ccc;
   color: #333;
 }
+
