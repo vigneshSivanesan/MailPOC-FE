@@ -10,27 +10,41 @@
   .inbox-input {
     display: flex;
     flex-direction: column; 
+    gap: 1rem;
+    align-items: center;
   }
   
   .inbox-input label {
-    margin-bottom: 5px; 
+    margin-bottom: 5px;
+    text-transform: capitalize;
+    color: #3f8ef3;
+    font-weight: 600;
+    width: 100%; 
   }
 
   .inbox-input input {
-    padding: 5px 10px;
+    padding: 12px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    font-size: 14px;
-    width: 150px; /* Set the width to 50px */
+    font-size: 16px;
+    width: 100%; /* Set the width to 50px */
+
+    &:focus-visible{
+      outline: 1px solid #3f8ef3;
+    }
   }
 
   .inbox-input button {
-    padding: 5px 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-
-    font-size: 14px;
-    width: 150px; /* Set the width to 50px */
+    padding: 10px;
+    border: 1px solid #3f8ef3;
+    border-radius: 10px;
+    width: 170px;
+    font-size: 16px;
+    background: #3f8ef3;
+    color: #fff;
+    text-transform: capitalize;
+    font-weight: 600;
+    cursor: pointer;
   }
 
   .cards {
@@ -40,12 +54,12 @@
   }
   
   .card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 12px; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 15px; 
-    width: 250px; 
+    background-color: #e2efff;
+    border: 1px solid #a3cbff;
+    border-radius: 12px;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+    padding: 15px;
+    width: 250px;
     margin: 10px;
     text-align: center;
   }
@@ -65,21 +79,23 @@
   }
   
   .card p {
-    margin-bottom: 15px; 
-    color: #aaa; 
+    margin-bottom: 15px;
+    color: #222;
+    font-size: 14px; 
   }
   
   .card button {
-    background-color: #fff; 
-    color: #333; 
-    border: 1px solid #ddd; 
+    background-color: #3f8ef3;
+    color: #fff;
+    border: unset;
     padding: 10px 20px;
-    border-radius: 12px; 
+    border-radius: 8px;
+    cursor: pointer;
     cursor: pointer;
   }
   
   .card button:hover {
-    background-color: #f0f0f0; 
+    background-color: #2870ce;
   }
 
   .compose-popup {
@@ -100,4 +116,5 @@
     border-radius: 8px;
     width: 90%;
     max-width: 500px;
+    min-width: 350px;
   }
