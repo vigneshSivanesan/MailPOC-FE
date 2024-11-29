@@ -1,0 +1,17 @@
+
+<div>
+    <span (click)="setSelectedTab('Inbox')">Inbox</span>
+    <span (click)="setSelectedTab('Sent')">Sent</span>
+</div>
+
+
+    <div *ngIf="this.selectedTab === 'Inbox'">
+        <app-sent-items></app-sent-items> 
+    </div>
+    <div *ngIf="this.selectedTab === 'Sent'">
+        <app-mail-channel></app-mail-channel>
+    </div>
+
+
+
+
