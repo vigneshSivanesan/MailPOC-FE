@@ -77,6 +77,8 @@ getInboxMails(accessToken: string) {
   return this.http.get(this.graphUrl, { headers });
 }
 
+
+
 getOutlookSentMails(accessToken: string) {
   const headers = new HttpHeaders().set('Authorization', `Bearer ${accessToken}`);
   // const params = new HttpParams()
@@ -128,6 +130,16 @@ getGoogleInboxMails(accessToken: string) {
     const gmailBaseUrl = "https://www.googleapis.com/gmail/v1/users/me/messages"
   const headers = new HttpHeaders().set('Authorization', `Bearer ${accessToken}`);
   return this.http.get(gmailBaseUrl, { headers });
+}
+
+
+
+getGoogleSentMails(accessToken: string) {
+  const gmailBaseUrl = "https://www.googleapis.com/gmail/v1/users/me/messages";
+  const headers = new HttpHeaders().set('Authorization', `Bearer ${accessToken}`);
+  const params = new HttpParams().set('labelIds', 'SENT'); // Filter by Sent Mail label
+
+  return this.http.get(gmailBaseUrl, { headers, params });
 }
 
 // getGoogleSingleMail(accessToken: string, id: string) {

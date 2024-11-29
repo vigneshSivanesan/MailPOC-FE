@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, SecurityContext } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
@@ -184,7 +184,7 @@ export class MailChannelComponent {
     while (images.length > 0) {
       images[0].parentNode?.removeChild(images[0]);
     }
-    return this.sanitizer.bypassSecurityTrustHtml(tempDiv.innerHTML);
+    return this.sanitizer.sanitize(SecurityContext.HTML,tempDiv.innerHTML) || '';
   }
 
   openComposePopup(): void {
